@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GridConfig>
+	<id>G40012</id>
+	<name>G40012</name>
+	<size>
+		<height>400</height>
+		<width>700</width>
+	</size>
+	<pagination>
+		<loadingSize>100</loadingSize>
+	</pagination>
+	<header>
+		<show>true</show>
+		<title>Custom Grid Component</title>
+		<align>left</align>
+	</header>
+	<views>
+		<show>false</show>
+		<title>Views</title>
+		<defaultViewText>Default</defaultViewText>
+	</views>
+	<search>
+		<show>false</show>
+		<title>Search</title>
+		<textWidth>300</textWidth>
+	</search>
+    <hideShowColumns>
+		<show>true</show>
+		<title>Show/ Hide Columns</title>
+    </hideShowColumns>
+	<lookup>
+		<show>false</show>
+		<title>Quick Look</title>
+		<textWidth>200</textWidth>
+	</lookup>
+	<recordCount>
+		<show>true</show>
+		<title>Flights : </title>
+	</recordCount>
+    <tools>
+    	<title>Tools</title>
+		<show>true</show>
+    </tools>
+    <contextMenu>
+    	<menus>
+    		<menu>
+    			<title>Add Catering Station</title>
+    			<icon>images/add.png</icon>
+    			<function>doAdd</function>
+    			<type>grid</type>
+    		</menu>
+    		<menu>
+    			<title>Edit Catering Station</title>
+    			<icon>images/edit.png</icon>
+    			<function>doEdit</function>
+    			<type>row</type>
+    		</menu>
+    		<menu>
+    			<title>Delete Catering Station</title>
+    			<icon>images/delete.png</icon>
+    			<function>doDelete</function>
+    			<type>row</type>
+    		</menu>
+    	</menus>
+    </contextMenu>
+    <functions>
+    	<rowClickCallback>callSingleClick</rowClickCallback>
+    	<rowDoubleClickCallback>callDoubleClick</rowDoubleClickCallback>
+    </functions>
+
+	<columns>
+		<column>
+			<title>Flight#</title>
+			<dataField>flightNo</dataField>
+			<dataType>String</dataType>
+			<width>80</width>
+			<visible>true</visible>
+			<hide>false</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Dep. Date</title>
+			<dataField>deptDate</dataField>
+			<dataType>Date</dataType>
+			<width>100</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>STD</title>
+			<dataField>stdDeptTime</dataField>
+			<dataType>String</dataType>
+			<width>80</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Arr. Date</title>
+			<dataField>arrDate</dataField>
+			<dataType>Date</dataType>
+			<width>100</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>		
+		<column>
+			<title>STA</title>
+			<dataField>stdArrTime</dataField>
+			<dataType>String</dataType>
+			<width>80</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+			
+		<column>
+			<title>Leg#</title>
+			<dataField>legNo</dataField>
+			<dataType>Number</dataType>
+			<width>60</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Service Code</title>
+			<dataField>serviceCode</dataField>
+			<dataType>String</dataType>
+			<width>140</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+	</columns>
+</GridConfig>

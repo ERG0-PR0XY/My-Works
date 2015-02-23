@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GridConfig>
+	<id>G30008</id>
+	<name>GRIDS.LOAD_STATIONPRODUCTS</name>
+	<size>
+		<height>400</height>
+		<width>580</width>
+	</size>
+	<pagination>
+		<loadingSize>100</loadingSize>
+	</pagination>
+	<header>
+		<show>true</show>
+		<title>Custom Grid Component</title>
+		<align>left</align>
+	</header>
+	<views>
+		<show>false</show>
+		<title>Views</title>
+		<defaultViewText>Default</defaultViewText>
+	</views>
+	<search>
+		<show>true</show>
+		<title>Search</title>
+		<textWidth>300</textWidth>
+	</search>
+    <hideShowColumns>
+		<show>true</show>
+		<title>Show/ Hide Columns</title>
+    </hideShowColumns>
+	<lookup>
+		<show>false</show>
+		<title>Quick Look</title>
+		<textWidth>200</textWidth>
+	</lookup>
+	<recordCount>
+		<show>true</show>
+		<title>Station Products :</title>
+	</recordCount>
+    <tools>
+    	<title>Tools</title>
+		<show>false</show>
+    </tools>
+    <contextMenu>
+    	<menus>
+    		<menu>
+    			<title>Add Station Product</title>
+    			<icon>images/add.png</icon>
+    			<function>doAdd</function>
+    			<type>grid</type>
+    		</menu>
+    		<menu>
+    			<title>Edit Station Product</title>
+    			<icon>images/edit.png</icon>
+    			<function>doEdit</function>
+    			<type>row</type>
+    		</menu>
+    		<menu>
+    			<title>Delete Station Product</title>
+    			<icon>images/delete.png</icon>
+    			<function>doDelete</function>
+    			<type>row</type>
+    		</menu>
+    	</menus>
+    </contextMenu>
+    <functions>
+    	<rowClickCallback>callSingleClick</rowClickCallback>
+    	<rowDoubleClickCallback>callDoubleClick</rowDoubleClickCallback>
+    </functions>
+
+	<columns>
+		<idColumn>id</idColumn>
+
+		<column>
+			<title>Product Code</title>
+			<dataField>productLibrary.productCode</dataField>
+			<dataType>String</dataType>
+			<width>180</width>
+			<visible>true</visible>
+			<hide>false</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Product Name</title>
+			<dataField>productLibrary.productName</dataField>
+			<dataType>String</dataType>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>false</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Aircraft Layouts</title>
+			<dataField>aircraftLayouts</dataField>
+			<dataType>String</dataType>
+			<width>180</width>
+			<visible>false</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>false</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Eff. Date</title>
+			<dataField>effDate</dataField>
+			<dataType>Date</dataType>
+			<width>170</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>End Date</title>
+			<dataField>endDate</dataField>
+			<dataType>Date</dataType>
+			<width>170</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+	</columns>
+</GridConfig>
+

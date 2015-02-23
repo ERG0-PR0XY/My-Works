@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GridConfig>
+	<id>G30014</id>
+	<name>Static Websites</name>
+	<size>
+		<height>400</height>
+		<width>580</width>
+	</size>
+	<pagination>
+		<loadingSize>100</loadingSize>
+	</pagination>
+	<header>
+		<show>true</show>
+		<title>Custom Grid Component</title>
+		<align>left</align>
+	</header>
+	<views>
+		<show>true</show>
+		<title>Views</title>
+		<defaultViewText>Default</defaultViewText>
+	</views>
+	<search>
+		<show>true</show>
+		<title>Search</title>
+		<textWidth>300</textWidth>
+	</search>
+    <hideShowColumns>
+		<show>true</show>
+		<title>Show/ Hide Columns</title>
+    </hideShowColumns>
+	<lookup>
+		<show>true</show>
+		<title>Quick Look</title>
+		<textWidth>200</textWidth>
+	</lookup>
+	<recordCount>
+		<show>true</show>
+		<title>Static Websites :</title>
+	</recordCount>
+    <tools>
+    	<title>Tools</title>
+		<show>false</show>
+    </tools>
+    <contextMenu>
+    	<menus>
+    		<menu>
+    			<title>Static Website</title>
+    			<icon>images/add.png</icon>
+    			<function>doAdd</function>
+    			<type>grid</type>
+    		</menu>
+    		<menu>
+    			<title>Edit Station Product</title>
+    			<icon>images/edit.png</icon>
+    			<function>doEdit</function>
+    			<type>row</type>
+    		</menu>
+    		<menu>
+    			<title>Delete Station Product</title>
+    			<icon>images/delete.png</icon>
+    			<function>doDelete</function>
+    			<type>row</type>
+    		</menu>
+    	</menus>
+    </contextMenu>
+    <functions>
+    	<rowClickCallback>callSingleClick</rowClickCallback>
+    	<rowDoubleClickCallback>callDoubleClick</rowDoubleClickCallback>
+    </functions>
+
+	<columns>
+		<idColumn>id</idColumn>
+
+		<column>
+			<title>Name</title>
+			<dataField>staticWebsiteName</dataField>
+			<dataType>String</dataType>
+			<width>200</width>
+			<visible>true</visible>
+			<hide>false</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+						
+		<column>
+			<title>Publication Code</title>
+			<dataField>publication.publicationCode</dataField>
+			<dataType>String</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>WebTemplate Name</title>
+			<dataField>webTemplate.webTemplateName</dataField>
+			<dataType>String</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Website Size (KB)</title>
+			<dataField>staticWebsiteSize</dataField>
+			<dataType>Number</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<!-- <column>
+			<title>PDF's Included</title>
+			<dataField>copyPdfFiles</dataField>
+			<dataType>CheckBox</dataType>
+			<resultRenderer type="CheckBoxRenderer"/>
+			<width>80</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>false</sort>
+			<filter>false</filter>
+			<search>false</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>-->
+		<column>
+			<title>Status</title>
+			<dataField>staticWebsiteStatus.code</dataField>
+			<dataType>String</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Error Info.</title>
+			<dataField>errorInfo</dataField>
+			<dataType>String</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Created By</title>
+			<dataField>createdByUserName</dataField>
+			<dataType>String</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Created Date</title>
+			<dataField>createdDate</dataField>
+			<dataType>Date</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+	</columns>
+</GridConfig>
+

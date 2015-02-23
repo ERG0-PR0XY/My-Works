@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GridConfig>
+	<id>RECALL_TO_DRAFT_GRID</id>
+	<name>RECALL_TO_DRAFT_GRID</name>
+	<size>
+		<height>400</height>
+		<width>700</width>
+	</size>	
+	<pagination>		
+		<loadingSize>100</loadingSize>
+	</pagination>
+	<header>
+		<show>true</show>
+		<title>Custom Grid Component</title>
+		<align>left</align>
+	</header>
+	<views>
+		<show>true</show>
+		<title>Views</title>
+		<defaultViewText>Default</defaultViewText>		
+	</views>
+	<search>
+		<show>true</show>
+		<title>Search</title>
+		<textWidth>300</textWidth>		
+	</search>      
+    <hideShowColumns>
+		<show>true</show>
+		<title>Show/ Hide Columns</title>		
+    </hideShowColumns>  
+	<lookup>
+		<show>true</show>
+		<title>Quick Look</title>
+		<textWidth>200</textWidth>		
+	</lookup>      
+	<recordCount>
+		<show>true</show>
+		<title>Containers :</title>		
+	</recordCount>
+    <tools>
+    	<title>Tools</title>
+		<show>true</show>		
+    </tools>
+    <contextMenu>
+    	<menus>
+    		<menu>
+    			<title>Add Task</title>
+    			<icon>images/add.png</icon>
+    			<function>doAdd</function>
+    			<type>grid</type>
+    		</menu>
+    		<menu>
+    			<title>Edit Task</title>
+    			<icon>images/edit.png</icon>
+    			<function>doEdit</function>
+    			<type>row</type>
+    		</menu>
+    		<menu>
+    			<title>Delete Task</title>
+    			<icon>images/delete.png</icon>
+    			<function>doDelete</function>
+    			<type>row</type>
+    		</menu>
+    	</menus>
+    </contextMenu>
+    <functions>
+    	<rowClickCallback>callSingleClick</rowClickCallback>
+    	<rowDoubleClickCallback>callDoubleClick</rowDoubleClickCallback>
+    </functions>
+
+	<columns>
+				
+	    <column>
+			<title> Code</title>
+			<dataField>containerVrsnCode</dataField>
+			<dataType>String</dataType>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>false</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Vrsn#</title>
+			<dataField>versionNo</dataField>
+			<dataType>Number</dataType>
+			<width>90</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Status</title>
+			<dataField>workflowStatusCode</dataField>
+			<dataType>String</dataType> 
+			<width>88</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Published Vrsn#</title>
+			<dataField>publishedVersionNo</dataField>
+			<dataType>String</dataType>
+			<width>130</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>		
+		<column>
+			<title>Eff. Date</title>
+			<dataField>effDate</dataField>
+			<dataType>Date</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>End Date</title>
+			<dataField>endDate</dataField>
+			<dataType>Date</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Name</title>
+			<dataField>containerName</dataField>
+			<dataType>String</dataType>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>false</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<!--<column>
+			<title>Used in Published Containers</title>
+			<dataField>usedInContainers</dataField>
+			<dataType>CheckBox</dataType>
+			<resultRenderer type="CheckBoxRenderer"/>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Used in Published Products</title>
+			<dataField>usedInProducts</dataField>
+			<dataType>CheckBox</dataType>
+			<resultRenderer type="CheckBoxRenderer"/>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Equipment Type Code</title>
+			<dataField>equipmentTypeCode</dataField>
+			<dataType>String</dataType>                                             
+			<findRenderer type="ListItemRenderer">
+				<ListItemRenderer  displayField="equipmentTypeCode" serviceName="globalDataServiceRemoteObject"  methodName="findAllEquipmentType">
+				</ListItemRenderer>    
+			</findRenderer>			
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Equipment Type Name</title>
+			<dataField>equipmentTypeName</dataField>
+			<dataType>String</dataType>                                             
+			<findRenderer type="ListItemRenderer">
+				<ListItemRenderer  displayField="equipmentTypeName" serviceName="globalDataServiceRemoteObject"  methodName="findAllEquipmentType">
+				</ListItemRenderer>    
+			</findRenderer>			
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Container Class</title>
+			<dataField>internalName</dataField>
+			<dataType>String</dataType>                                             
+			<findRenderer type="ListItemRenderer">
+				<ListItemRenderer  displayField="internalName" serviceName="globalDataServiceRemoteObject"  methodName="findAllClassOfSvc">
+				</ListItemRenderer>    
+			</findRenderer>      
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Exchange Type</title>
+			<dataField>exchangeTypeCode</dataField>
+			<dataType>String</dataType>                                             
+			<findRenderer type="ListItemRenderer">
+				<ListItemRenderer  displayField="exchangeTypeCode" serviceName="globalDataServiceRemoteObject"  methodName="findAllExchangeType">
+				</ListItemRenderer>    
+			</findRenderer>      
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Container Type Code</title>
+			<dataField>containerTypeCode</dataField>
+			<dataType>String</dataType>
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Container Type Name</title>
+			<dataField>containerTypeName</dataField>
+			<dataType>String</dataType>
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+            <title>Module Type Code</title>
+            <dataField>moduleTypes</dataField>
+			<dataType>String</dataType>
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+        </column>		 
+		<column>
+            <title>Module Type Name</title>
+            <dataField>moduleTypeNames</dataField>
+			<dataType>String</dataType>
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+        </column>		 
+		<column>
+			<title>Alternate Code</title>
+			<dataField>containerCode2</dataField>
+			<dataType>String</dataType>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Alternate Name</title>
+			<dataField>containerName2</dataField>
+			<dataType>String</dataType>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Part#</title>
+			<dataField>gpPartNo</dataField>
+			<dataType>String</dataType>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Part Name</title>
+			<dataField>gpPartName</dataField>
+			<dataType>String</dataType>
+			<width>160</width>
+			<visible>false</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Container Weight</title>
+			<dataField>containerWeight</dataField>
+			<dataType>Number</dataType>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Include in ACM</title>
+			<dataField>includeInAcm</dataField>
+			<dataType>CheckBox</dataType>
+			<resultRenderer type="CheckBoxRenderer"/>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Is SDL</title>
+			<dataField>isSdlContainer</dataField>
+			<dataType>CheckBox</dataType>
+			<resultRenderer type="CheckBoxRenderer"/>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+			<column>
+			<title>Created Date</title>
+			<dataField>createdDate</dataField>
+			<dataType>Date</dataType>
+			<width>170</width>
+			<visible>false</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Created By</title>
+			<dataField>createdByUserName</dataField>
+			<dataType>String</dataType>
+			<width>180</width>
+			<visible>false</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Updated Date</title>
+			<dataField>updatedDate</dataField>
+			<dataType>Date</dataType>
+			<width>170</width>
+			<visible>false</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Updated By</title>
+			<dataField>updatedByUserName</dataField>
+			<dataType>String</dataType>
+			<width>180</width>
+			<visible>false</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>		
+		<column>
+			<title>Entity Created Context</title>
+			<dataField>entityCreatedContext.code</dataField>
+			<dataType>String</dataType>
+			<width>180</width>
+			<visible>false</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>-->			
+	
+	</columns>
+</GridConfig>

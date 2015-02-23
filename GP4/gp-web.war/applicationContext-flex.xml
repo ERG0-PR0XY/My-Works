@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<objects
+  xmlns="http://www.springactionscript.org/schema/objects"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:messaging="http://www.springactionscript.org/schema/messaging"
+  xsi:schemaLocation="http://www.springactionscript.org/schema/objects
+  http://www.springactionscript.org/schema/objects/spring-actionscript-objects-1.0.xsd
+  http://www.springactionscript.org/schema/objects/spring-actionscript-messaging-1.0.xsd"
+  >
+
+	<property file="gp-client.properties" />
+
+	<object id="autowiringStageProcessor" class="org.springextensions.actionscript.stage.DefaultAutowiringStageProcessor"/>
+
+	<object id="remoteObject" class="mx.rpc.remoting.mxml.RemoteObject" abstract="true">
+	    <property name="showBusyCursor" value="true" />
+	    <property name="channelSet" ref="channelSet" />
+	</object>
+
+
+	<object id="channelSet" class="mx.messaging.ChannelSet">
+	    <constructor-arg>
+	    	<param name="clusteredWithURLLoadBalancing" value="true" />
+	    </constructor-arg>
+	    <property name="clustered" value="true" />
+	   <!-- <method-invocation name="addChannel">
+	        <arg>
+	            <object id="amfChannel1" class="mx.messaging.channels.SecureAMFChannel">
+	                <property name="url" value="https://${host1}:${port1}/${context-root}/messagebroker/amf" />
+	                <property name="failoverURIs" ref="failoverURIs" />
+	                <property name="id" value="amfChannel1" />
+	            </object>
+	        </arg>
+	    </method-invocation>
+            <method-invocation name="addChannel">
+                <arg>
+                    <object id="amfChannel2" class="mx.messaging.channels.SecureAMFChannel">
+                        <property name="url" value="https://${host2}:${port2}/${context-root}/messagebroker/amf" />
+                        <property name="failoverURIs" ref="failoverURIs" />
+                        <property name="id" value="amfChannel2" />
+                    </object>
+                </arg>
+            </method-invocation>-->
+	   <method-invocation name="addChannel">
+	        <arg>
+	            <object id="amfChannel3" class="mx.messaging.channels.AMFChannel">
+	                <property name="url" value="http://${host1}:${port1}/${context-root}/messagebroker/amf" />
+	                <property name="failoverURIs" ref="failoverURIs" />
+	                <property name="id" value="amfChannel3" />
+	            </object>
+	        </arg>
+	    </method-invocation>
+            <method-invocation name="addChannel">
+                <arg>
+                    <object id="amfChannel4" class="mx.messaging.channels.AMFChannel">
+                        <property name="url" value="http://${host2}:${port2}/${context-root}/messagebroker/amf" />
+                        <property name="failoverURIs" ref="failoverURIs" />
+                        <property name="id" value="amfChannel4" />
+                    </object>
+                </arg>
+            </method-invocation> 
+	</object>
+
+	<object id="failoverURIs" class="Array">
+		<constructor-arg>
+			<array>
+				<value>http://${host1}:${port1}/${context-root}/messagebroker/amf</value>
+			</array>
+		</constructor-arg>
+	</object>
+	
+	<object id="securityController" class="org.springextensions.actionscript.cairngorm.control.CairngormFrontController" scope="singleton">
+		<constructor-arg>
+		  <object>
+		    <property name="authenticate" value="AuthenticationCommand"/>
+		    <property name="getUnAuthzActions" value="AuthzCommand"/>
+		  </object>
+		</constructor-arg>
+		<constructor-arg value="com.egatesolutions.gp.core.security"/>
+		<method-invocation name="addCommandFactory">
+			<arg>
+				<ref>securityCommandFactory</ref>
+			</arg>
+		</method-invocation>
+	</object>
+	
+	<object id="securityCommandFactory" class="com.egatesolutions.gp.core.command.ApplicationModelAwareCommandFactory" scope="singleton">
+		<method-invocation name="addBusinessDelegateFactory">
+	    <arg>
+	      <ref>securityBusinessDelegateFactory</ref>
+	    </arg>
+	    <arg>
+	      <ref>securityCommandClassnames</ref>
+	    </arg>
+	  </method-invocation>
+	</object>
+
+	<object id="securityCommandClassnames" class="Array">
+    	<constructor-arg>
+        	<value type="Class">com.egatesolutions.gp.core.security.AuthzCommand</value>
+	    </constructor-arg>
+    	<constructor-arg>
+        	<value type="Class">com.egatesolutions.gp.core.security.AuthenticationCommand</value>
+	    </constructor-arg>
+  	</object>
+	
+	<object id="securityBusinessDelegateFactory" class="org.springextensions.actionscript.cairngorm.business.BusinessDelegateFactory" scope="singleton">
+		<property name="service" ref="securityServiceRemoteObject"/>
+  		<property name="delegateClass" type="class" value="com.egatesolutions.gp.core.security.SecurityBusinessDelegate" />
+	</object>
+
+	<object id="portalController" class="org.springextensions.actionscript.cairngorm.control.CairngormFrontController" scope="singleton">
+		<constructor-arg>
+		  <object>
+		  	<property name="getPortletMetadata" value="PortalServiceCommand"/>
+		  	<property name="getPortletWindowMetadata" value="PortalServiceCommand"/>
+		  </object>
+		</constructor-arg>
+		<constructor-arg value="com.egatesolutions.gp.core.portal.command"/>
+		<method-invocation name="addCommandFactory">
+			<arg><ref>portalCommandFactory</ref></arg>
+		</method-invocation>
+	</object>
+
+	<object id="portalCommandFactory" class="com.egatesolutions.gp.core.command.ApplicationModelAwareCommandFactory" scope="singleton">
+		<method-invocation name="addBusinessDelegateFactory">
+	    <arg>
+	      <ref>portalServiceDelegateFactory</ref>
+	    </arg>
+	    <arg>
+		  	<object class="Array">
+		 		<constructor-arg>
+		     		<value type="Class">com.egatesolutions.gp.core.portal.command.PortalServiceCommand</value>
+		  		</constructor-arg>
+			</object>
+	    </arg>
+	  </method-invocation>
+	</object>
+
+	<object id="portalServiceDelegateFactory" class="org.springextensions.actionscript.cairngorm.business.BusinessDelegateFactory" scope="singleton">
+		<property name="service" ref="portalService"/>
+  		<property name="delegateClass" type="class" value="com.egatesolutions.gp.core.portal.PortalServiceDelegate" />
+	</object>
+
+	<object id="portalService" parent="remoteObject">
+	    <property name="destination" value="portalService" />
+	</object>
+
+	<object id="gridRemoteObject" parent="remoteObject">
+	    <property name="destination" value="gridService" />
+	</object>
+
+	<object id="searchServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="searchService" />
+	</object>
+
+	<object id="authenticationService" parent="remoteObject">
+	    <property name="destination" value="authenticationService" />
+	</object>
+
+	<object id="partsCatalogServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="partsCatalogueService" />
+	</object>
+
+	<object id="designerService" parent="remoteObject">
+	    <property name="destination" value="designerService" />
+	</object>
+
+	<object id="treeServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="treeService" />
+	</object>
+
+	<object id="referenceDataServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="referenceDataService" />
+	</object>
+
+	<object id="globalDataServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="globalDataService" />
+	</object>
+
+	<object id="notesLibraryServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="notesLibraryService" />
+	</object>
+
+	<object id="globalDataRemoteObject" parent="remoteObject">
+	    <property name="destination" value="globalDataService" />
+	</object>
+
+	<object id="containerServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="containerService" />
+	</object>
+
+	<object id="productServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="productService" />
+	</object>
+
+	<object id="flightScheduleRemoteObject" parent="remoteObject">
+	    <property name="destination" value="flightScheduleService" />
+	</object>
+
+	<object id="imageLibraryServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="imageLibraryService" />
+	</object>
+
+	<object id="publisherReferenceDataServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="publisherReferenceDataService" />
+	</object>
+
+	<object id="moduleServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="moduleService" />
+	</object>
+
+	<object id="cateringStationServiceRemoteObject" parent="remoteObject">
+		<property name="destination" value="cateringStationService" />
+	</object>
+
+	<object id="flightScheduleProductRemoteObject" parent="remoteObject">
+	    <property name="destination" value="flightScheduleProductService" />
+	</object>
+
+	<object id="autoSuggestServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="autoSuggestService" />
+	</object>
+
+	<object id="moreInfoServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="moreInfoService" />
+	</object>
+
+	<object id="taskManagerServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="taskManagerService" />
+	</object>
+
+	<object id="serviceCategoryServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="serviceCategoryService" />
+	</object>
+
+	<object id="serviceCodeServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="serviceCodeService" />
+	</object>
+
+	<object id="serviceTypeServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="serviceTypeService" />
+	</object>
+
+	<object id="conceptTypeServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="conceptTypeService" />
+	</object>
+
+	<object id="conceptServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="conceptService" />
+	</object>
+
+	<object id="moduleStowageServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="moduleStowageService" />
+	</object>
+
+	<object id="preferencesServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="preferenceService" />
+	</object>
+
+	<object id="fuelBurnServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="fuelBurnService" />
+	</object>
+
+	<object id="moduleContentServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="moduleContentService" />
+	</object>
+
+	<object id="scratchPadService" parent="remoteObject">
+	    <property name="destination" value="scratchPadService" />
+	</object>
+
+	<object id="reportServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="reportRunManager" />
+	</object>
+
+	<object id="workflowServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="workflowService" />
+	</object>
+
+	<object id="catererPortalServiceRemoteObject" parent="remoteObject">
+		<property name="destination" value="catererPortalService"/>
+	</object>
+
+	<object id="contextReportsRemoteSerivce" parent="remoteObject">
+		<property name="destination" value="reportsManager"/>
+	</object>
+
+	<object id="manageSDLRuleServiceRemoteSerivce" parent="remoteObject">
+		<property name="destination" value="manageSDLRuleService"/>
+	</object>
+
+	<object id="userServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="userService" />
+	</object>
+	<object id="oneToOneInventoryServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="oneToOneInventoryService" />
+	</object>
+
+	<object id="containerSearchServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="containerSearchService" />
+	</object>
+
+	<object id="dssServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="dssService" />
+	</object>
+
+	<object id="securityServiceRemoteObject" parent="remoteObject">
+	    <property name="destination" value="securityService" />
+	</object>
+
+	<object id="toolsModuleServiceRemoteObject" parent="remoteObject">
+		<property name="destination" value="toolsService" />
+	</object>
+	
+	<object id="simulationServiceRemoteObject" parent="remoteObject">
+		<property name="destination" value="simulationService" />
+	</object>
+
+	<!-- ServiceRemoteObject for EventInfo -->
+	<object id="eventInfoServiceRemoteObject" parent="remoteObject">
+		<property name="destination" value="eventInfoService"/>
+	</object>
+</objects>

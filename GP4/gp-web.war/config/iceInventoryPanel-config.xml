@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GridConfig>
+	<id>ICEContainerInventoryPanel</id>
+	<name>Container Inventory</name>
+	<size>
+		<height>400</height>
+		<width>700</width>
+	</size>	
+	<pagination>		
+		<loadingSize>100</loadingSize>
+	</pagination>
+	<header>
+		<show>true</show>
+		<title>Custom Grid Component</title>
+		<align>left</align>
+	</header>
+	<views>
+		<show>false</show>
+		<title>Views</title>
+		<defaultViewText>Default</defaultViewText>		
+	</views>
+	<search>
+		<show>true</show>
+		<title>Search</title>
+		<textWidth>300</textWidth>		
+	</search>      
+    <hideShowColumns>
+		<show>true</show>
+		<title>Show/ Hide Columns</title>		
+    </hideShowColumns>  
+	<lookup>
+		<show>true</show>
+		<title>Quick Look</title>
+		<textWidth>200</textWidth>		
+	</lookup>      
+	<recordCount>
+		<show>true</show>
+		<title>Inventory :</title>		
+	</recordCount>
+    <tools>
+    	<title>Tools</title>
+		<show>true</show>		
+    </tools>
+    <contextMenu>
+    	<menus>
+    		<menu>
+    			<title>Add Task</title>
+    			<icon>images/add.png</icon>
+    			<function>doAdd</function>
+    			<type>grid</type>
+    		</menu>
+    		<menu>
+    			<title>Edit Task</title>
+    			<icon>images/edit.png</icon>
+    			<function>doEdit</function>
+    			<type>row</type>
+    		</menu>
+    		<menu>
+    			<title>Delete Task</title>
+    			<icon>images/delete.png</icon>
+    			<function>doDelete</function>
+    			<type>row</type>
+    		</menu>
+    	</menus>
+    </contextMenu>
+    <functions>
+    	<rowClickCallback>callSingleClick</rowClickCallback>
+    	<rowDoubleClickCallback>callDoubleClick</rowDoubleClickCallback>
+    </functions>
+	<columns>
+	    <column>
+			<title>Part Code</title>
+			<dataField>gpPartNo</dataField>
+			<dataType>String</dataType>
+			<width>120</width>
+			<visible>true</visible>
+			<hide>false</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>			
+	    <column>
+			<title>Part Name</title>
+			<dataField>gpPartName</dataField>
+			<dataType>String</dataType>
+			<width>120</width>
+			<visible>true</visible>
+			<hide>false</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>			
+		<column>
+			<title>Part Qty#</title>
+			<dataField>quantity</dataField>
+			<dataType>Number</dataType>
+			<width>120</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Part Type</title>
+			<dataField>partType</dataField>
+			<dataType>String</dataType>
+			<width>120</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>	    
+	    <column>
+			<title>Container Code</title>
+			<dataField>containerCode</dataField>
+			<dataType>String</dataType>
+			<width>120</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>			
+	    <column>
+			<title>Container Name</title>
+			<dataField>containerName</dataField>
+			<dataType>String</dataType>
+			<width>120</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Eff. Date</title>
+			<dataField>effDate</dataField>
+			<dataType>Date</dataType>
+			<width>120</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>End Date</title>
+			<dataField>endDate</dataField>
+			<dataType>Date</dataType>
+			<width>120</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Version#</title>
+			<dataField>versionNo</dataField>
+			<dataType>Number</dataType>
+			<width>140</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+	</columns>
+</GridConfig>

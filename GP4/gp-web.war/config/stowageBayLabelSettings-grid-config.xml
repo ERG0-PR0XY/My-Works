@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='utf-8'?>
+<GridConfig>
+	<id>StowageBay LabelSettings</id>
+	<name>StowageBay LabelSettings</name>
+	<size>
+		<height>400</height>
+		<width>700</width>
+	</size>
+	<pagination>
+		<loadingSize>100</loadingSize>
+	</pagination>
+	<header>
+		<show>true</show>
+		<title>Custom Grid Component</title>
+		<align>left</align>
+	</header>
+	<views>
+		<show>true</show>
+		<title>Views</title>
+		<defaultViewText>Default</defaultViewText>
+	</views>
+	<search>
+		<show>true</show>
+		<title>Search</title>
+		<textWidth>300</textWidth>
+	</search>
+    <hideShowColumns>
+		<show>true</show>
+		<title>Show/ Hide Columns</title>
+    </hideShowColumns>
+	<lookup>
+		<show>true</show>
+		<title>Quick Look</title>
+		<textWidth>200</textWidth>
+	</lookup>
+	<recordCount>
+		<show>true</show>
+		<title>StowageBay LabelSettings:</title>
+	</recordCount>
+    <tools>
+    	<title>Tools</title>
+		<show>true</show>
+    </tools>
+    <contextMenu>
+    	<menus>
+    		<menu>
+    			<title>Add StowageBay LabelSettings</title>
+    			<icon>images/add.png</icon>
+    			<function>doAdd</function>
+    			<type>grid</type>
+    		</menu>
+    		<menu>
+    			<title>Edit StowageBay LabelSettings</title>
+    			<icon>images/edit.png</icon>
+    			<function>doEdit</function>
+    			<type>row</type>
+    		</menu>
+    		<menu>
+    			<title>Delete StowageBay LabelSettings</title>
+    			<icon>images/delete.png</icon>
+    			<function>doDelete</function>
+    			<type>row</type>
+    		</menu>
+    	</menus>
+    </contextMenu>
+    <functions>
+    	<rowClickCallback>callSingleClick</rowClickCallback>
+    	<rowDoubleClickCallback>callDoubleClick</rowDoubleClickCallback>
+    </functions>
+
+	<columns>
+		<column>
+			<title>Galley</title>
+			<dataField>galley.galleyCode</dataField>
+			<dataType>String</dataType>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Page No</title>
+			<dataField>pageNo</dataField>
+			<dataType>Number</dataType>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Eff Date</title>
+			<dataField>effDate</dataField>
+			<dataType>Date</dataType>
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+
+		<column>
+			<title>End Date</title>
+			<dataField>endDate</dataField>
+			<dataType>Date</dataType>
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Quantity</title>
+			<dataField>quantity</dataField>
+			<dataType>CheckBox</dataType>
+			<resultRenderer type="CheckBoxRenderer"/>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>false</sort>
+			<filter>false</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Item Code</title>
+			<dataField>itemCode</dataField>
+			<dataType>CheckBox</dataType>
+			<resultRenderer type="CheckBoxRenderer"/>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>false</sort>
+			<filter>false</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Alt Item Code</title>
+			<dataField>alternateItemCode</dataField>
+			<dataType>CheckBox</dataType>
+			<resultRenderer type="CheckBoxRenderer"/>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>false</sort>
+			<filter>false</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Name</title>
+			<dataField>name</dataField>
+			<dataType>CheckBox</dataType>
+			<resultRenderer type="CheckBoxRenderer"/>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>false</sort>
+			<filter>false</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Alt Name</title>
+			<dataField>alternateName</dataField>
+			<dataType>CheckBox</dataType>
+			<resultRenderer type="CheckBoxRenderer"/>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>false</sort>
+			<filter>false</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Include in ACM</title>
+			<dataField>includeInAcm</dataField>
+			<dataType>CheckBox</dataType>
+			<resultRenderer type="CheckBoxRenderer"/>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>false</sort>
+			<filter>false</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+
+	</columns>
+</GridConfig>

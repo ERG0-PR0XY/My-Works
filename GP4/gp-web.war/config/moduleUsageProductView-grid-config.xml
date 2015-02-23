@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GridConfig>
+	<id>GRIDS.MODULE_USAGE_PRODUCT_VIEW</id>
+	<name>GRIDS.MODULE_USAGE_PRODUCT_VIEW</name>
+	<size>
+		<height>400</height>
+		<width>700</width>
+	</size>	
+	<pagination>		
+		<loadingSize>100</loadingSize>
+	</pagination>
+	<header>
+		<show>true</show>
+		<title>Custom Grid Component</title>
+		<align>left</align>
+	</header>
+	<views>
+		<show>true</show>
+		<title>Views</title>
+		<defaultViewText>Default</defaultViewText>		
+	</views>
+	<search>
+		<show>true</show>
+		<title>Search</title>
+		<textWidth>300</textWidth>		
+	</search>      
+    <hideShowColumns>
+		<show>true</show>
+		<title>Show/ Hide Columns</title>		
+    </hideShowColumns>  
+	<lookup>
+		<show>true</show>
+		<title>Quick Look</title>
+		<textWidth>200</textWidth>		
+	</lookup>      
+	<recordCount>
+		<show>true</show>
+		<title>Product(s) :</title>		
+	</recordCount>
+    <tools>
+    	<title>Tools</title>
+		<show>true</show>		
+    </tools>
+    <contextMenu>
+    	<menus>
+    		<menu>
+    			<title>Add Task</title>
+    			<icon>images/add.png</icon>
+    			<function>doAdd</function>
+    			<type>grid</type>
+    		</menu>
+    		<menu>
+    			<title>Edit Task</title>
+    			<icon>images/edit.png</icon>
+    			<function>doEdit</function>
+    			<type>row</type>
+    		</menu>
+    		<menu>
+    			<title>Delete Task</title>
+    			<icon>images/delete.png</icon>
+    			<function>doDelete</function>
+    			<type>row</type>
+    		</menu>
+    	</menus>
+    </contextMenu>
+    <functions>
+    	<rowClickCallback>callSingleClick</rowClickCallback>
+    	<rowDoubleClickCallback>callDoubleClick</rowDoubleClickCallback>
+    </functions>
+
+	<columns>				
+	    <column>
+			<title>AC Layout</title>
+			<dataField>aircraftLayoutCode</dataField>
+			<dataType>String</dataType>
+			<width>130</width>
+			<visible>false</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>	
+		<column>
+			<title>AC Layout Vrsn#</title>
+			<dataField>alVersionNo</dataField>
+			<dataType>Number</dataType>
+			<width>135</width>
+			<visible>false</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>		
+		<column>
+			<title>Product Code</title>
+			<dataField>productCode</dataField>
+			<dataType>String</dataType>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>false</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Product Name</title>
+			<dataField>productName</dataField>
+			<dataType>String</dataType>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>false</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>		
+		<column>
+			<title>Product Vrsn#</title>
+			<dataField>productVersionNo</dataField>
+			<dataType>Number</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Product Status</title>
+			<dataField>productStatus</dataField>
+			<dataType>String</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Product Category</title>
+			<dataField>productCategoryCode</dataField>
+			<dataType>String</dataType>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Product Type</title>
+			<dataField>productTypeCode</dataField>
+			<dataType>String</dataType>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+			
+		<column>
+			<title>Eff. Date</title>
+			<dataField>effDate</dataField>
+			<dataType>Date</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>End Date</title>
+			<dataField>endDate</dataField>
+			<dataType>Date</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+			
+		<column>
+			<title>Prod. Published Vrsn#</title>
+			<dataField>publishedVersionNo</dataField>
+			<dataType>String</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>			
+	</columns>
+</GridConfig>

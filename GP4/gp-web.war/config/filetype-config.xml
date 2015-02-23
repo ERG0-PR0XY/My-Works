@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<filetype>
+	<type>*.txt</type>
+	<type>*.dat</type>
+	<type>*.ssim</type>
+	<type>*.sds</type>
+	<type>*.zip</type>
+	<type>*.gz</type>
+</filetype>

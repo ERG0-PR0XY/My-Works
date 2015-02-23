@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+
+    <display-name>GP</display-name>
+    <description>Galley Planning Application</description>
+	<distributable id="gp"/>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+        classpath*:applicationContext-security.xml
+        classpath*:applicationContext-aop.xml
+   		classpath*:applicationContext-server.xml
+   		classpath*:applicationContext-dao.xml
+		classpath*:applicationContext-service-component.xml
+   		classpath*:applicationContext-service.xml 
+   		classpath*:applicationContext-reporting-maint.xml
+   		classpath*:applicationContext-messaging.xml
+   		classpath*:applicationContext-email.xml
+   		classpath*:applicationContext-core-monitoring.xml
+   		<!-- classpath*:applicationContext-remote-service.xml-->
+   		WEB-INF/flex-servlet-context.xml  		
+        </param-value>
+    </context-param>
+
+	<filter>
+	  <filter-name>springSecurityFilterChain</filter-name>
+	  <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+
+	<filter>
+		<filter-name>osivFilter</filter-name>
+		<filter-class>
+			com.egatesolutions.gp.web.flex.filter.GenericOpenSessionInViewFilter 
+		</filter-class>
+	</filter>
+
+	<filter-mapping>
+	  <filter-name>springSecurityFilterChain</filter-name>
+	  <url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>osivFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+
+    <!-- Http Flex Session attribute and binding listener support -->
+    <listener>
+        <listener-class>flex.messaging.HttpFlexSession</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+	<!-- Update Standard WebTemplates to Database -->
+    <listener>
+        <listener-class>com.egatesolutions.gp.web.util.StandardTemplateUtil</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>flex</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>flex</servlet-name>
+        <url-pattern>/messagebroker/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping> 
+        <servlet-name>flex</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>  
+    <servlet-mapping>
+        <servlet-name>flex</servlet-name>
+        <url-pattern>/exporttoexcel/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>flex</servlet-name>
+        <url-pattern>/exporttoxlsx/*</url-pattern>
+    </servlet-mapping>
+	<servlet-mapping>
+        <servlet-name>flex</servlet-name>
+        <url-pattern>/viewDoc/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>flex</servlet-name>
+        <url-pattern>/reports/*</url-pattern>
+    </servlet-mapping>   
+    <servlet-mapping>
+        <servlet-name>flex</servlet-name>
+        <url-pattern>/viewLabel/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>flex</servlet-name>
+        <url-pattern>/sites/*</url-pattern>
+    </servlet-mapping> 
+    <servlet-mapping>
+        <servlet-name>flex</servlet-name>
+        <url-pattern>/reportInterfaceFile/*</url-pattern>
+    </servlet-mapping> 
+    
+     <servlet-mapping>
+        <servlet-name>flex</servlet-name>
+        <url-pattern>/exporttocsv/*</url-pattern>
+    </servlet-mapping>
+	<session-config>
+		<session-timeout>480</session-timeout>
+	</session-config>    
+    <welcome-file-list>
+        <welcome-file>GPMain.jsp</welcome-file>
+    </welcome-file-list>
+    
+</web-app>

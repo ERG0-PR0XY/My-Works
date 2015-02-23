@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GridConfig>
+	<id>G6001CCC</id>
+	<name>DSS Product Compare Exchange</name>
+	<size>
+		<height>400</height>
+		<width>700</width>
+	</size>
+	<pagination>
+		<loadingSize>100</loadingSize>
+	</pagination>
+	<header>
+		<show>false</show>
+		<title>Custom Grid Component</title>
+		<align>left</align>
+	</header>
+	<views>
+		<show>false</show>
+		<title>Views</title>
+		<defaultViewText>Default</defaultViewText>
+	</views>
+	<search>
+		<show>false</show>
+		<title>Search</title>
+		<textWidth>300</textWidth>
+	</search>
+    <hideShowColumns>
+		<show>false</show>
+		<title>Show/ Hide Columns</title>
+    </hideShowColumns>
+	<lookup>
+		<show>true</show>
+		<title>Quick Look</title>
+		<textWidth>200</textWidth>
+	</lookup>
+	<recordCount>
+		<show>false</show>
+		<title>Details :</title>
+	</recordCount>
+    <tools>
+    	<title>Tools</title>
+		<show>false</show>
+    </tools>
+    <contextMenu>
+    	<menus>
+    		<menu>
+    			<title>Add Task</title>
+    			<icon>images/add.png</icon>
+    			<function>doAdd</function>
+    			<type>grid</type>
+    		</menu>
+    		<menu>
+    			<title>Edit Task</title>
+    			<icon>images/edit.png</icon>
+    			<function>doEdit</function>
+    			<type>row</type>
+    		</menu>
+    		<menu>
+    			<title>Delete Task</title>
+    			<icon>images/delete.png</icon>
+    			<function>doDelete</function>
+    			<type>row</type>
+    		</menu>
+    	</menus>
+    </contextMenu>
+    <functions>
+    	<rowClickCallback>callSingleClick</rowClickCallback>
+    	<rowDoubleClickCallback>callDoubleClick</rowDoubleClickCallback>
+    </functions>
+
+	<columns>
+		<idColumn>id</idColumn>
+
+		<column>
+			<title>Part No - Name</title>
+			<dataField>partText</dataField>
+			<dataType>String</dataType>
+			<width>200</width>
+			<visible>true</visible>
+			<hide>false</hide>
+			<sort>false</sort>
+			<filter>false</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Exchange Code</title>
+			<dataField>exchangeCode</dataField>
+			<dataType>String</dataType>
+			<width>140</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>false</sort>
+			<filter>false</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Product A</title>
+			<dataField>quantityA</dataField>
+			<dataType>Number</dataType>
+			<width>140</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>false</sort>
+			<filter>false</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Product B</title>
+			<dataField>quantityB</dataField>
+			<dataType>Number</dataType>
+			<width>140</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>false</sort>
+			<filter>false</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>In-Balance</title>
+			<dataField>balance</dataField>
+			<dataType>Number</dataType>
+			<width>140</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>false</sort>
+			<filter>false</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+
+	</columns>
+</GridConfig>

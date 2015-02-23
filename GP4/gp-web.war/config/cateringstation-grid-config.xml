@@ -1,0 +1,255 @@
+<?xml version='1.0' encoding='utf-8'?>
+<GridConfig>
+	<id>G20024</id>
+	<name>Catering Stations</name>
+	<size>
+		<height>400</height>
+		<width>700</width>
+	</size>
+	<pagination>
+		<loadingSize>100</loadingSize>
+	</pagination>
+	<header>
+		<show>true</show>
+		<title>Custom Grid Component</title>
+		<align>left</align>
+	</header>
+	<views>
+		<show>true</show>
+		<title>Views</title>
+		<defaultViewText>Default</defaultViewText>
+	</views>
+	<search>
+		<show>true</show>
+		<title>Search</title>
+		<textWidth>300</textWidth>
+	</search>
+    <hideShowColumns>
+		<show>true</show>
+		<title>Show/ Hide Columns</title>
+    </hideShowColumns>
+	<lookup>
+		<show>true</show>
+		<title>Quick Look</title>
+		<textWidth>200</textWidth>
+	</lookup>
+	<recordCount>
+		<show>true</show>
+		<title>Catering Station:</title>
+	</recordCount>
+    <tools>
+    	<title>Tools</title>
+		<show>true</show>
+    </tools>
+    <contextMenu>
+    	<menus>
+    		<menu>
+    			<title>Add Catering Station</title>
+    			<icon>images/add.png</icon>
+    			<function>doAdd</function>
+    			<type>grid</type>
+    		</menu>
+    		<menu>
+    			<title>Edit Catering Station</title>
+    			<icon>images/edit.png</icon>
+    			<function>doEdit</function>
+    			<type>row</type>
+    		</menu>
+    		<menu>
+    			<title>Delete Catering Station</title>
+    			<icon>images/delete.png</icon>
+    			<function>doDelete</function>
+    			<type>row</type>
+    		</menu>
+    	</menus>
+    </contextMenu>
+    <functions>
+    	<rowClickCallback>callSingleClick</rowClickCallback>
+    	<rowDoubleClickCallback>callDoubleClick</rowDoubleClickCallback>
+    </functions>
+
+	<columns>
+		<column>
+			<title>Station Code</title>
+			<dataField>carrierCateringStationCode</dataField>
+			<dataType>String</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>false</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Name</title>
+			<dataField>cateringStationName</dataField>
+			<dataType>String</dataType>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>false</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Port Code</title>
+			<dataField>cateringPortCode</dataField>
+			<dataType>String</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Weight Unit</title>
+			<dataField>uom.abbreviation</dataField>
+			<dataType>String</dataType>
+			<findRenderer type="ListItemRenderer">
+				<ListItemRenderer  displayField="abbreviation" serviceName="globalDataServiceRemoteObject"  methodName="findWeightUom">
+                </ListItemRenderer>
+            </findRenderer>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Currency</title>
+			<dataField>currency.currencyCode</dataField>
+			<dataType>String</dataType>
+			<!--<findRenderer type="ListItemRenderer">
+				<ListItemRenderer  displayField="currencyCode" serviceName="globalDataServiceRemoteObject"  methodName="findAllCurrency">
+                </ListItemRenderer>
+            </findRenderer>-->
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Eff. Date</title>
+			<dataField>effDate</dataField>
+			<dataType>Date</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+
+		<column>
+			<title>End Date</title>
+			<dataField>endDate</dataField>
+			<dataType>Date</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Contact Name</title>
+			<dataField>contactName</dataField>
+			<dataType>String</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Contact Address</title>
+			<dataField>contactAddress</dataField>
+			<dataType>String</dataType>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Country</title>
+			<dataField>contactCountry.name</dataField>
+			<dataType>String</dataType>
+			<!--<findRenderer type="ListItemRenderer">
+				<ListItemRenderer  displayField="name" serviceName="globalDataServiceRemoteObject"  methodName="findAllCountry">
+                </ListItemRenderer>
+            </findRenderer>-->
+			<width>100</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Phone</title>
+			<dataField>contactPhone</dataField>
+			<dataType>String</dataType>
+			<width>100</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Mobile</title>
+			<dataField>contactMobile</dataField>
+			<dataType>String</dataType>
+			<width>110</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Email</title>
+			<dataField>contactEmail</dataField>
+			<dataType>String</dataType>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+	</columns>
+</GridConfig>

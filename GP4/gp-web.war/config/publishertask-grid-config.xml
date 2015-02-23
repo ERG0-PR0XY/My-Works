@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GridConfig>
+	<id>G30004</id>
+	<name>GRIDS.LOAD_STATIONPRODUCTS</name>
+	<size>
+		<height>400</height>
+		<width>580</width>
+	</size>
+	<pagination>
+		<loadingSize>100</loadingSize>
+	</pagination>
+	<header>
+		<show>true</show>
+		<title>Custom Grid Component</title>
+		<align>left</align>
+	</header>
+	<views>
+		<show>true</show>
+		<title>Views</title>
+		<defaultViewText>Default</defaultViewText>
+	</views>
+	<search>
+		<show>true</show>
+		<title>Search</title>
+		<textWidth>300</textWidth>
+	</search>
+    <hideShowColumns>
+		<show>true</show>
+		<title>Show/ Hide Columns</title>
+    </hideShowColumns>
+	<lookup>
+		<show>true</show>
+		<title>Quick Look</title>
+		<textWidth>200</textWidth>
+	</lookup>
+	<recordCount>
+		<show>true</show>
+		<title>Tasks :</title>
+	</recordCount>
+    <tools>
+    	<title>Tools</title>
+		<show>true</show>
+    </tools>
+    <contextMenu>
+    	<menus>
+    		<menu>
+    			<title>Add Station Product</title>
+    			<icon>images/add.png</icon>
+    			<function>doAdd</function>
+    			<type>grid</type>
+    		</menu>
+    		<menu>
+    			<title>Edit Station Product</title>
+    			<icon>images/edit.png</icon>
+    			<function>doEdit</function>
+    			<type>row</type>
+    		</menu>
+    		<menu>
+    			<title>Delete Station Product</title>
+    			<icon>images/delete.png</icon>
+    			<function>doDelete</function>
+    			<type>row</type>
+    		</menu>
+    	</menus>
+    </contextMenu>
+    <functions>
+    	<rowClickCallback>callSingleClick</rowClickCallback>
+    	<rowDoubleClickCallback>callDoubleClick</rowDoubleClickCallback>
+    </functions>
+
+	<columns>
+		<idColumn>id</idColumn>
+
+		<column>
+			<title>Task Number</title>
+			<dataField>taskmanCode</dataField>
+			<dataType>Number</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>false</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+						
+		<column>
+			<title>Create Date</title>
+			<dataField>createdDate</dataField>
+			<dataType>Date</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Eff. Date</title>
+			<dataField>effDate</dataField>
+			<dataType>Date</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>false</filter>
+			<search>false</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		
+		<column>
+			<title>Issue Date</title>
+			<dataField>issueDate</dataField>
+			<dataType>Date</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		
+		<column>
+			<title>Requested Date</title>
+			<dataField>requestedDate</dataField>
+			<dataType>Date</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Status</title>
+			<dataField>workflowStatus.presentWorkflowStatusType.workflowStatusTypeCode</dataField>
+			<dataType>String</dataType>
+			<findRenderer type="ListItemRenderer">
+				<ListItemRenderer  displayField="workflowStatusTypeCode" serviceName="workflowServiceRemoteObject"  methodName="findAllTaskmanWorkflowStatusTypes">
+                </ListItemRenderer>
+            </findRenderer>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Priority</title>
+			<dataField>taskmanPriority.taskmanPriorityCode</dataField>
+			<dataType>String</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Requested By</title>
+			<dataField>requestedBy</dataField>
+			<dataType>String</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		
+		<column>
+			<title>Assigned To</title>
+			<dataField>assignedTo</dataField>
+			<dataType>Number</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+				
+		<column>
+			<title>Change Type</title>
+			<dataField>taskmanChangeType.taskmanChangeTypeCode</dataField>
+			<dataType>String</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		
+		<column>
+			<title>Description</title>
+			<dataField>airlineDesc</dataField>
+			<dataType>String</dataType>
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column> 
+		
+		
+		<!--<column>
+			<title>Last Printed</title>
+			<dataField>createdDate</dataField>
+			<dataType>Date</dataType>
+			<width>160</width>
+			<visible>true</visible>
+			<hide>false</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>-->
+		<column>
+			<title>Created Date</title>
+			<dataField>createdDate</dataField>
+			<dataType>Date</dataType>
+			<width>Auto</width>
+			<visible>false</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Created By</title>
+			<dataField>createdByUserName</dataField>
+			<dataType>String</dataType>
+			<width>180</width>
+			<visible>false</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Updated Date</title>
+			<dataField>updatedDate</dataField>
+			<dataType>Date</dataType>
+			<width>170</width>
+			<visible>false</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Updated By</title>
+			<dataField>updatedByUserName</dataField>
+			<dataType>String</dataType>
+			<width>180</width>
+			<visible>false</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		
+	</columns>
+</GridConfig>
+

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GridConfig>
+	<id>aircraftLayoutLookupGrid</id>
+	<name>aircraftLayoutLookupGrid</name>
+	<size>
+		<height>400</height>
+		<width>998</width>
+	</size>	
+	<pagination>		
+		<loadingSize>30</loadingSize>
+	</pagination>
+	<header>
+		<show>false</show>
+		<title>Custom Grid Component</title>
+		<align>left</align>
+	</header>
+		<views>
+		<show>false</show>
+		<title>Views</title>
+		<defaultViewText>Default</defaultViewText>		
+	</views>
+	<search>
+		<show>true</show>
+		<title>Search</title>
+		<textWidth>300</textWidth>		
+	</search>      
+    <hideShowColumns>
+		<show>false</show>
+		<title>Show/ Hide Columns</title>		
+    </hideShowColumns>  
+	<lookup>
+		<show>false</show>
+		<title>Quick Look</title>
+		<textWidth>200</textWidth>		
+	</lookup>      
+	<recordCount>
+		<show>true</show>
+		<title>Aircraft Layout(s) :</title>		
+	</recordCount>
+    <tools>
+    	<title>Tools</title>
+		<show>false</show>		
+    </tools>
+    <contextMenu>
+    	<menus>
+    		<menu>
+    			<title>Add Task</title>
+    			<icon>images/add.png</icon>
+    			<function>doAdd</function>
+    			<type>grid</type>
+    		</menu>
+    		<menu>
+    			<title>Edit Task</title>
+    			<icon>images/edit.png</icon>
+    			<function>doEdit</function>
+    			<type>row</type>
+    		</menu>
+    		<menu>
+    			<title>Delete Task</title>
+    			<icon>images/delete.png</icon>
+    			<function>doDelete</function>
+    			<type>row</type>
+    		</menu>
+    	</menus>
+    </contextMenu>
+   
+	 <functions>
+    	<rowClickCallback>callSingleClick</rowClickCallback>
+    	<rowDoubleClickCallback>callDoubleClick</rowDoubleClickCallback>
+    </functions>
+    
+	<columns>
+		
+
+		<column>
+			<title>Code</title>
+			<dataField>aircraftLayoutCode</dataField>
+			 <dataType>String</dataType>                                             
+			<width>120</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+
+
+		
+	    <column>
+			<title>Name</title>
+			<dataField>aircraftLayoutName</dataField>
+			<dataType>String</dataType>
+			<width>180</width>
+			<visible>true</visible>
+			<hide>false</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>	
+		
+		<column>
+			<title>Vrsn#</title>
+			<dataField>versionNo</dataField>
+			<dataType>Number</dataType>                                             
+			<width>Auto</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Aircraft Type</title>
+			<dataField>aircraftType.aircraftTypeCode</dataField>
+			<dataType>String</dataType>                                             
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		
+	</columns>
+</GridConfig>

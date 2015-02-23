@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GridConfig>
+	<id>G20072</id>
+	<name>G20072</name>
+	<size>
+		<height>300</height>
+		<width>600</width>
+	</size>	
+	<pagination>		
+		<loadingSize>100</loadingSize>
+	</pagination>
+	<header>
+		<show>true</show>
+		<title>Custom Grid Component</title>
+		<align>left</align>
+	</header>
+	<views>
+		<show>true</show>
+		<title>Views</title>
+		<defaultViewText>Default</defaultViewText>		
+	</views>
+	<search>
+		<show>true</show>
+		<title>Search</title>
+		<textWidth>300</textWidth>		
+	</search>      
+    <hideShowColumns>
+		<show>true</show>
+		<title>Show/ Hide Columns</title>		
+    </hideShowColumns>  
+	<lookup>
+		<show>true</show>
+		<title>Quick Look</title>
+		<textWidth>200</textWidth>		
+	</lookup>      
+	<recordCount>
+		<show>true</show>
+		<title>Rules:</title>		
+	</recordCount>
+    <tools>
+    	<title>Tools</title>
+		<show>true</show>		
+    </tools>
+    <contextMenu>
+    	<menus>
+    		<menu>
+    			<title>Add Task</title>
+    			<icon>images/add.png</icon>
+    			<function>doAdd</function>
+    			<type>grid</type>
+    		</menu>
+    		<menu>
+    			<title>Edit Task</title>
+    			<icon>images/edit.png</icon>
+    			<function>doEdit</function>
+    			<type>row</type>
+    		</menu>
+    		<menu>
+    			<title>Delete Task</title>
+    			<icon>images/delete.png</icon>
+    			<function>doDelete</function>
+    			<type>row</type>
+    		</menu>
+    	</menus>
+    </contextMenu>
+    <functions>
+    	<rowClickCallback>callSingleClick</rowClickCallback>
+    	<rowDoubleClickCallback>callDoubleClick</rowDoubleClickCallback>
+    </functions>
+	<columns>
+			<column>
+			<title>Product Code</title>
+			<dataField>productCode</dataField>
+			<dataType>String</dataType>
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		
+		<column>
+			<title>Product Name</title>
+			<dataField>productName</dataField>
+			<dataType>String</dataType>
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+
+		
+		<column>
+			<title>Product Version#</title>
+			<dataField>productVersionNo</dataField>
+			<dataType>Number</dataType>
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>		
+
+		
+	     <column>
+			<title>Product Eff.Date</title>
+			<dataField>productEffDate</dataField>
+			<dataType>Date</dataType>
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Product Status</title>
+			<dataField>productStatus</dataField>
+			<dataType>String</dataType>
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>		
+	    <column>
+			<title>Module Code</title>
+			<dataField>moduleCode</dataField>
+			<dataType>String</dataType>
+			<width>180</width>
+			<visible>true</visible>
+			<hide>false</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		
+		<column>
+			<title>Module Name</title>
+			<dataField>moduleName</dataField>
+			<dataType>String</dataType>
+			<width>180</width>
+			<visible>true</visible>
+			<hide>false</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+
+		
+		<column>
+			<title>Module Version#</title>
+			<dataField>moduleVersionNo</dataField>
+			<dataType>Number</dataType>
+			<width>180</width>
+			<visible>false</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>		
+
+		
+	     <column>
+			<title>Module Eff.Date</title>
+			<dataField>moduleEffDate</dataField>
+			<dataType>Date</dataType>
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column> 
+		
+		<column>
+			<title>Module Seq.</title>
+			<dataField>moduleSeq</dataField>
+			<dataType>Number</dataType>
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Cond. Service Class</title>
+			<dataField>abbr</dataField>
+			<dataType>String</dataType>
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Cond. Service Qty.</title>
+			<dataField>condServQty</dataField>
+			<dataType>Number</dataType>
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Galley Code</title>
+			<dataField>galleyCode</dataField>
+			<dataType>String</dataType>
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		
+		<column>
+			<title>Galley Name</title>
+			<dataField>galleyName</dataField>
+			<dataType>String</dataType>
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Stowage Bay#</title>
+			<dataField>stowageBayNo</dataField>
+			<dataType>String</dataType>
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		
+		<column>
+			<title>Stowage Name</title>
+			<dataField>stowageBayName</dataField>
+			<dataType>String</dataType>
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Loading Rule Seq.</title>
+			<dataField>loadingRuleSeq</dataField>
+			<dataType>Number</dataType>
+			<width>180</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		
+		<column>
+			<title>Container Code</title>
+			<dataField>gpPartNo1</dataField>
+			<dataType>String</dataType>
+			<width>200</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		<column>
+			<title>Container Name</title>
+			<dataField>gpPartName1</dataField>
+			<dataType>String</dataType>
+			<width>200</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		
+		<column>
+			<title>Container Qty.</title>
+			<dataField>gpPartQty</dataField>
+			<dataType>Number</dataType>
+			<width>100</width>
+			<visible>true</visible>
+			<hide>true</hide>
+			<sort>true</sort>
+			<filter>true</filter>
+			<search>true</search>
+			<resize>true</resize>
+			<dragable>true</dragable>
+		</column>
+		
+
+	</columns>
+	
+</GridConfig>
